@@ -143,6 +143,10 @@ module.exports = class UserController {
 
         let image = ''
 
+        if (req.file) {
+            user.image = req.file.filename
+        }
+
         // Validations
         if (!name) {
             res.status(422).json({ message: 'O nome é obrigatório!' })
